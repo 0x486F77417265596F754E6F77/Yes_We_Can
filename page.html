@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes_We_Can Writeups</title>
+    <style>
+        :root {
+            --hacker-green: #00ff00;
+            --matrix-cyan: #00ffff;
+            --terminal-bg: #0a0a0a;
+            --glow-effect: 0 0 10px var(--hacker-green);
+            --font-mono: 'Source Code Pro', 'Courier New', monospace;
+            --font-digital: 'Orbitron', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-mono);
+        }
+
+        body {
+            background: var(--terminal-bg);
+            color: var(--hacker-green);
+            line-height: 1.6;
+            animation: electricPulse 3s;
+        }
+
+        
+        .header {
+            background: #000;
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 3px dashed var(--hacker-green);
+            text-shadow: var(--glow-effect);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 25%,
+                rgba(0, 255, 0, 0.1) 50%,
+                transparent 75%
+            );
+            animation: scanline 4s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100%); }
+        }
+
+       
+        .writeup-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--hacker-green);
+            padding: 2rem;
+            margin: 2rem auto;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: var(--glow-effect);
+            max-width: 800px;
+            opacity: 0;
+            animation: cardsAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            animation-delay: calc(0.3s * var(--index));
+        }
+
+        @keyframes cardsAppear {
+            0% { opacity: 0; transform: translateY(50px) rotateX(90deg); }
+            100% { opacity: 1; transform: translateY(0) rotateX(0); }
+        }
+
+        .writeup-card:hover {
+            background: rgba(0, 30, 0, 0.9);
+            transform: translateX(20px) rotateZ(1deg);
+            box-shadow: 0 0 20px var(--hacker-green);
+        }
+
+     
+        .writeup-card h2 {
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 0 1rem 0;
+            width: 0;
+            animation: typing 5s steps(30, end) forwards;
+        }
+
+        @keyframes typing {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+       
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: -1;
+            background-image: 
+                linear-gradient(transparent 95%, rgba(0,255,0,0.1)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="20" font-size="12" fill="%2300ff00">1001101</text></svg>');
+            animation: matrix 50s linear infinite;
+        }
+
+        @keyframes matrix {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100%); }
+        }
+
+        
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .header h1 {
+            animation: glitch 1s infinite;
+            text-shadow: 
+                1px 2px var(--matrix-cyan),
+                -2px -1px #ff00ff;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .empty-state {
+            text-align: center;
+            margin: 5rem auto;
+            animation: float 3s ease-in-out infinite;
+            text-shadow: 0 0 15px var(--hacker-green);
+        }
+
+        @keyframes terminalFlicker {
+            0% { opacity: 0.8; }
+            5% { opacity: 0.2; }
+            10% { opacity: 0.9; }
+            15% { opacity: 0.1; }
+            20% { opacity: 1; }
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,255,0,0.03);
+            pointer-events: none;
+            animation: terminalFlicker 0.15s infinite;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes electricPulse {
+            0% { box-shadow: 0 0 30px 0px var(--hacker-green); }
+            100% { box-shadow: 0 0 50px 20px transparent; }
+        }
+
+      
+        .writeup-details {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            background: var(--terminal-bg);
+            color: var(--hacker-green);
+            padding: 2rem;
+            width: 80%;
+            max-width: 800px;
+            border: 2px solid var(--matrix-cyan);
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1000;
+        }
+
+        .writeup-details.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .writeup-details button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--matrix-cyan);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .writeup-details button:hover {
+            transform: scale(1.2);
+            text-shadow: 0 0 10px var(--matrix-cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Yes_We_Can Writeups</h1>
+    </div>
+
+    <div class="main-content" id="contentArea">
+        <div class="empty-state" id="emptyState">
+            📂 Folder is empty, add your first Writeup!
+        </div>
+    </div>
+
+    <div id="detailsContainer" style="display: none;"></div>
+
+    <script>
+        const writeups = [
+            {
+                id: 1,
+                title: "CTF Example 1 - Web Challenge",
+                date: "2024-05-20",
+                description: "Advanced SQL Injection solution",
+                contentPath: "writeups/ctf1.html"
+            },
+            {
+                id: 2,
+                title: "CTF Example 2 - Cryptography",
+                date: "2024-05-21",
+                description: "RSA Encryption challenge solution",
+                contentPath: "writeups/ctf2.html"
+            }
+        ];
+
+        function renderWriteups() {
+            const container = document.getElementById('contentArea');
+            const emptyState = document.getElementById('emptyState');
+
+            if (writeups.length === 0) {
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            container.innerHTML = '';
+
+            writeups.forEach((writeup, index) => {
+                const card = document.createElement('div');
+                card.className = 'writeup-card';
+                card.style.setProperty('--index', index);
+                card.innerHTML = `
+                    <h2>${writeup.title}</h2>
+                    <p>📅 ${writeup.date}</p>
+                    <p>${writeup.description}</p>
+                `;
+                card.onclick = () => showDetails(writeup.contentPath);
+                container.appendChild(card);
+            });
+        }
+
+        async function showDetails(contentPath) {
+            try {
+                const response = await fetch(contentPath);
+                if (!response.ok) throw new Error("File not found");
+                const content = await response.text();
+
+                const detailsContainer = document.getElementById('detailsContainer');
+                detailsContainer.style.display = 'flex';
+                detailsContainer.innerHTML = `
+                    <div class="writeup-details">
+                        <button onclick="closeDetails()">× Close</button>
+                        <div>${content}</div>
+                    </div>
+                `;
+                
+                setTimeout(() => {
+                    detailsContainer.querySelector('.writeup-details').classList.add('active');
+                }, 10);
+            } catch (error) {
+                alert("Error loading content: " + error.message);
+            }
+        }
+
+        function closeDetails() {
+            const details = document.querySelector('.writeup-details');
+            details.classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('detailsContainer').style.display = 'none';
+            }, 400);
+        }
+
+        renderWriteups();
+    </script>
+</body>
+</html>
