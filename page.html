@@ -14,18 +14,21 @@
             --font-mono: 'Source Code Pro', 'Courier New', monospace;
             --font-digital: 'Orbitron', sans-serif;
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: var(--font-mono);
         }
+
         body {
             background: var(--terminal-bg);
             color: var(--hacker-green);
             line-height: 1.6;
             animation: electricPulse 3s;
         }
+
         .header {
             background: #000;
             padding: 1.5rem;
@@ -36,6 +39,7 @@
             overflow: hidden;
             animation: slideIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
+
         /* Global visitor counter element (في أقصى اليمين) */
         .visitor-counter {
             position: absolute;
@@ -46,14 +50,17 @@
             align-items: center;
             color: var(--matrix-cyan);
         }
+
         .visitor-counter .eye-icon {
             margin-right: 8px;
             font-size: 1.5rem;
         }
+
         @keyframes slideIn {
             from { transform: translateY(-100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
         .header::after {
             content: "";
             position: absolute;
@@ -69,10 +76,12 @@
             );
             animation: scanline 4s linear infinite;
         }
+
         @keyframes scanline {
             0% { transform: translateX(0); }
             100% { transform: translateX(100%); }
         }
+
         .writeup-card {
             background: rgba(0, 0, 0, 0.8);
             border: 1px solid var(--hacker-green);
@@ -87,15 +96,18 @@
             animation-delay: calc(0.3s * var(--index));
             will-change: transform, opacity;
         }
+
         @keyframes cardsAppear {
             0% { opacity: 0; transform: translateY(50px) rotateX(90deg); }
             100% { opacity: 1; transform: translateY(0) rotateX(0); }
         }
+
         .writeup-card:hover {
             background: rgba(0, 30, 0, 0.9);
             transform: translateX(20px) rotateZ(1deg);
             box-shadow: 0 0 20px var(--hacker-green);
         }
+
         .writeup-card h2 {
             position: relative;
             overflow: hidden;
@@ -104,14 +116,17 @@
             width: 0;
             animation: typing 5s steps(30, end) forwards;
         }
+
         @keyframes typing {
             from { width: 0%; }
             to { width: 100%; }
         }
+
         @keyframes blink {
             0%, 100% { opacity: 0; }
             50% { opacity: 1; }
         }
+
         body::before {
             content: "";
             position: fixed;
@@ -126,10 +141,12 @@
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="20" font-size="12" fill="%2300ff00">1001101</text></svg>');
             animation: matrix 50s linear infinite;
         }
+
         @keyframes matrix {
             from { transform: translateY(0); }
             to { transform: translateY(-100%); }
         }
+
         @keyframes glitch {
             0% { transform: translate(0); }
             20% { transform: translate(-2px, 2px); }
@@ -138,22 +155,26 @@
             80% { transform: translate(2px, -2px); }
             100% { transform: translate(0); }
         }
+
         .header h1 {
             animation: glitch 1s infinite;
             text-shadow: 
                 1px 2px var(--matrix-cyan),
                 -2px -1px #ff00ff;
         }
+
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
+
         .empty-state {
             text-align: center;
             margin: 5rem auto;
             animation: float 3s ease-in-out infinite;
             text-shadow: 0 0 15px var(--hacker-green);
         }
+
         @keyframes terminalFlicker {
             0% { opacity: 0.8; }
             5% { opacity: 0.2; }
@@ -161,6 +182,7 @@
             15% { opacity: 0.1; }
             20% { opacity: 1; }
         }
+
         body::after {
             content: "";
             position: fixed;
@@ -173,10 +195,12 @@
             animation: terminalFlicker 0.15s infinite;
             mix-blend-mode: screen;
         }
+
         @keyframes electricPulse {
             0% { box-shadow: 0 0 30px 0px var(--hacker-green); }
             100% { box-shadow: 0 0 50px 20px transparent; }
         }
+
         .writeup-details {
             position: fixed;
             top: 50%;
@@ -192,10 +216,12 @@
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             z-index: 1000;
         }
+
         .writeup-details.active {
             opacity: 1;
             transform: translate(-50%, -50%) scale(1);
         }
+
         .writeup-details button {
             position: absolute;
             top: 1rem;
@@ -207,15 +233,18 @@
             cursor: pointer;
             transition: all 0.3s;
         }
+
         .writeup-details button:hover {
             transform: scale(1.2);
             text-shadow: 0 0 10px var(--matrix-cyan);
         }
+
         @media (max-width: 768px) {
             .writeup-card {
                 padding: 1rem;
                 margin: 1rem auto;
             }
+
             .writeup-details {
                 width: 90%;
                 padding: 1rem;
@@ -232,12 +261,15 @@
             <span id="visitorCount">Visitor Count: Loading...</span>
         </div>
     </div>
+
     <div class="main-content" id="contentArea">
         <div class="empty-state" id="emptyState">
             📂 Folder is empty, add your first Writeup!
         </div>
     </div>
+
     <div id="detailsContainer" style="display: none;"></div>
+
     <script>
         const writeups = [
             {
@@ -255,8 +287,6 @@
             const localStorageKey = 'visited';
             const namespace = 'yeswecan';
             const key = 'visitorcounter';
-
-            // عرض رسالة تحميل مؤقتاً
             const counterElem = document.getElementById('visitorCount');
             counterElem.innerText = "Visitor Count: Loading...";
 
@@ -265,6 +295,7 @@
                 fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
                     .then(response => response.json())
                     .then(data => {
+                        console.log("Hit response:", data);
                         if(data && data.value !== undefined) {
                             counterElem.innerText = "Visitor Count: " + data.value;
                             localStorage.setItem(localStorageKey, 'true');
@@ -281,6 +312,7 @@
                 fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
                     .then(response => response.json())
                     .then(data => {
+                        console.log("Get response:", data);
                         if(data && data.value !== undefined) {
                             counterElem.innerText = "Visitor Count: " + data.value;
                         } else {
