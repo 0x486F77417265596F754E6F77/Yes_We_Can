@@ -40,7 +40,6 @@
             animation: slideIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
-        /* Global visitor counter element (في أقصى اليمين) */
         .visitor-counter {
             position: absolute;
             top: 10px;
@@ -264,7 +263,7 @@
 
     <div class="main-content" id="contentArea">
         <div class="empty-state" id="emptyState">
-            📂 Folder is empty, add your first Writeup!
+            📂 Folder is empty
         </div>
     </div>
 
@@ -286,14 +285,11 @@
             const counterElem = document.getElementById('visitorCount');
             counterElem.innerText = "Visitor Count: Loading...";
 
-            // دالة لإزالة الوسوم من الرد (مثلاً <pre>) والاحتفاظ بالنص فقط
             function stripHtmlTags(htmlString) {
                 return htmlString.replace(/<[^>]*>/g, '').trim();
             }
 
-            // إذا لم يسبق للمستخدم زيارة الصفحة في هذا المتصفح
             if (!localStorage.getItem(localStorageKey)) {
-                // للمستخدم الجديد: زيادة العداد
                 fetch("https://visitor-counter.apricotcontinued.workers.dev/")
                     .then(response => response.text())
                     .then(data => {
@@ -307,7 +303,6 @@
                         counterElem.innerText = "Visitor Count: N/A";
                     });
             } else {
-                // للمستخدم العائد: استرجاع العدد الحالي دون زيادة
                 fetch("https://visitor-counter.apricotcontinued.workers.dev/")
                     .then(response => response.text())
                     .then(data => {
@@ -360,7 +355,6 @@
             }, 400);
         }
 
-        // استدعاء الدالتين عند تحميل الصفحة
         updateVisitorCount();
         renderWriteups();
     </script>
