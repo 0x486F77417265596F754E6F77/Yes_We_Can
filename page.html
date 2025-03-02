@@ -40,6 +40,21 @@
             animation: slideIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
+        .visitor-counter {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            color: var(--matrix-cyan);
+        }
+
+        .visitor-counter .eye-icon {
+            margin-right: 8px;
+            font-size: 1.5rem;
+        }
+
         @keyframes slideIn {
             from { transform: translateY(-100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
@@ -239,6 +254,10 @@
 <body>
     <div class="header">
         <h1>Yes_We_Can Writeups</h1>
+        <div class="visitor-counter">
+            <span class="eye-icon">👁️</span>
+            <span id="visitorCount"></span>
+        </div>
     </div>
 
     <div class="main-content" id="contentArea">
@@ -259,6 +278,28 @@
                 contentPath: "writeups/ctf1.html"
             }
         ];
+
+        function getCookie(name) {
+            const value = "; " + document.cookie;
+            const parts = value.split("; " + name + "=");
+            if (parts.length === 2) return parts.pop().split(";").shift();
+        }
+
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+        }
+
+        function updateVisitorCount() {
+            let count = localStorage.getItem('visitorCount') || 0;
+            if (!getCookie('visited')) {
+                count++;
+                localStorage.setItem('visitorCount', count);
+                setCookie('visited', 'true', 365);
+            }
+            document.getElementById('visitorCount').innerText = " " + localStorage.getItem('visitorCount');
+        }
 
         function renderWriteups() {
             const container = document.getElementById('contentArea');
@@ -298,6 +339,7 @@
             }, 400);
         }
 
+        updateVisitorCount();
         renderWriteups();
     </script>
 </body>
