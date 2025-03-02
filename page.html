@@ -281,20 +281,25 @@
             }
         ];
 
-        // استخدام Cloudflare Visitor Counter لتحقيق عداد الزوار باستخدام JS فقط
-        // لن يتم زيادة العدد عند تحديث الصفحة لنفس المستخدم
         function updateVisitorCount() {
             const localStorageKey = 'visited';
             const counterElem = document.getElementById('visitorCount');
             counterElem.innerText = "Visitor Count: Loading...";
 
+            // دالة لإزالة الوسوم من الرد (مثلاً <pre>) والاحتفاظ بالنص فقط
+            function stripHtmlTags(htmlString) {
+                return htmlString.replace(/<[^>]*>/g, '').trim();
+            }
+
+            // إذا لم يسبق للمستخدم زيارة الصفحة في هذا المتصفح
             if (!localStorage.getItem(localStorageKey)) {
                 // للمستخدم الجديد: زيادة العداد
                 fetch("https://visitor-counter.apricotcontinued.workers.dev/")
                     .then(response => response.text())
                     .then(data => {
                         console.log("Hit response:", data);
-                        counterElem.innerText = "Visitor Count: " + data;
+                        const cleanedData = stripHtmlTags(data); 
+                        counterElem.innerText = "Visitor Count: " + cleanedData;
                         localStorage.setItem(localStorageKey, 'true');
                     })
                     .catch(error => {
@@ -307,7 +312,8 @@
                     .then(response => response.text())
                     .then(data => {
                         console.log("Get response:", data);
-                        counterElem.innerText = "Visitor Count: " + data;
+                        const cleanedData = stripHtmlTags(data);
+                        counterElem.innerText = "Visitor Count: " + cleanedData;
                     })
                     .catch(error => {
                         console.error('Error fetching visitor count:', error);
@@ -354,6 +360,7 @@
             }, 400);
         }
 
+        // استدعاء الدالتين عند تحميل الصفحة
         updateVisitorCount();
         renderWriteups();
     </script>
