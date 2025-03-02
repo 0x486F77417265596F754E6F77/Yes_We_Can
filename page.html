@@ -281,15 +281,31 @@
             }
         ];
 
-        // دالة استدعاء ملف الـ PHP للحصول على العدد العالمي
+        // استخدام countapi.xyz لتحقيق عداد عالمي باستخدام JS فقط
+        // ولن يتم زيادة العدد عند تحديث الصفحة إذا كان المستخدم قد زارها من قبل
         function updateVisitorCount() {
-            // إضافة معلمة عشوائية لمنع الكاش إن لزم الأمر:
-            fetch('counter.php?ts=' + new Date().getTime())
-                .then(response => response.text())
-                .then(count => {
-                    document.getElementById('visitorCount').innerText = "Visitor Count: " + count;
-                })
-                .catch(error => console.error('Error fetching visitor count:', error));
+            const localStorageKey = 'visited';
+            const namespace = 'yeswecan';
+            const key = 'visitorcounter';
+
+            if (!localStorage.getItem(localStorageKey)) {
+                // إذا كان المستخدم جديدًا، قم بزيادة العداد
+                fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('visitorCount').innerText = "Visitor Count: " + data.value;
+                        localStorage.setItem(localStorageKey, 'true');
+                    })
+                    .catch(error => console.error('Error updating visitor count:', error));
+            } else {
+                // إذا كان المستخدم قد زار الصفحة من قبل، فقط استرجع العدد الحالي دون زيادته
+                fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('visitorCount').innerText = "Visitor Count: " + data.value;
+                    })
+                    .catch(error => console.error('Error fetching visitor count:', error));
+            }
         }
 
         function renderWriteups() {
