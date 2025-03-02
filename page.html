@@ -299,7 +299,7 @@
                     .then(data => {
                         console.log("Hit response:", data);
                         const cleanedData = stripHtmlTags(data); 
-                        counterElem.innerText = "Visitor Count: " + cleanedData;
+                        counterElem.innerText = " " + cleanedData;
                         localStorage.setItem(localStorageKey, 'true');
                     })
                     .catch(error => {
