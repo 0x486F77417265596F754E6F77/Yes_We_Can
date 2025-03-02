@@ -29,7 +29,6 @@
             animation: electricPulse 3s;
         }
 
-        
         .header {
             background: #000;
             padding: 1.5rem;
@@ -67,7 +66,6 @@
             100% { transform: translateX(100%); }
         }
 
-       
         .writeup-card {
             background: rgba(0, 0, 0, 0.8);
             border: 1px solid var(--hacker-green);
@@ -80,6 +78,7 @@
             opacity: 0;
             animation: cardsAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
             animation-delay: calc(0.3s * var(--index));
+            will-change: transform, opacity;
         }
 
         @keyframes cardsAppear {
@@ -93,7 +92,6 @@
             box-shadow: 0 0 20px var(--hacker-green);
         }
 
-     
         .writeup-card h2 {
             position: relative;
             overflow: hidden;
@@ -113,7 +111,6 @@
             50% { opacity: 1; }
         }
 
-       
         body::before {
             content: "";
             position: fixed;
@@ -134,7 +131,6 @@
             to { transform: translateY(-100%); }
         }
 
-        
         @keyframes glitch {
             0% { transform: translate(0); }
             20% { transform: translate(-2px, 2px); }
@@ -189,7 +185,6 @@
             100% { box-shadow: 0 0 50px 20px transparent; }
         }
 
-      
         .writeup-details {
             position: fixed;
             top: 50%;
@@ -227,6 +222,18 @@
             transform: scale(1.2);
             text-shadow: 0 0 10px var(--matrix-cyan);
         }
+
+        @media (max-width: 768px) {
+            .writeup-card {
+                padding: 1rem;
+                margin: 1rem auto;
+            }
+
+            .writeup-details {
+                width: 90%;
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -251,7 +258,6 @@
                 description: "Fundamental",
                 contentPath: "writeups/ctf1.html"
             }
-           
         ];
 
         function renderWriteups() {
@@ -281,14 +287,20 @@
         }
 
         async function showDetails(contentPath) {
-            window.location.href = contentPath;
+            const detailsContainer = document.getElementById('detailsContainer');
+            detailsContainer.style.display = 'flex';
+            detailsContainer.innerHTML = `
+                <div class="writeup-details">
+                    <button onclick="closeDetails()">× Close</button>
+                    <div class="loading">Loading...</div>
+                </div>
+            `;
+
             try {
                 const response = await fetch(contentPath);
                 if (!response.ok) throw new Error("File not found");
                 const content = await response.text();
 
-                const detailsContainer = document.getElementById('detailsContainer');
-                detailsContainer.style.display = 'flex';
                 detailsContainer.innerHTML = `
                     <div class="writeup-details">
                         <button onclick="closeDetails()">× Close</button>
@@ -300,7 +312,12 @@
                     detailsContainer.querySelector('.writeup-details').classList.add('active');
                 }, 10);
             } catch (error) {
-                alert("Error loading content: " + error.message);
+                detailsContainer.innerHTML = `
+                    <div class="writeup-details">
+                        <button onclick="closeDetails()">× Close</button>
+                        <div>Error loading content: ${error.message}</div>
+                    </div>
+                `;
             }
         }
 
