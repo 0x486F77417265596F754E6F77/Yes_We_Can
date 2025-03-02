@@ -281,27 +281,21 @@
             }
         ];
 
-        // استخدام countapi.xyz لتحقيق عداد عالمي باستخدام JS فقط
+        // استخدام Cloudflare Visitor Counter لتحقيق عداد الزوار باستخدام JS فقط
         // لن يتم زيادة العدد عند تحديث الصفحة لنفس المستخدم
         function updateVisitorCount() {
             const localStorageKey = 'visited';
-            const namespace = 'yeswecan';
-            const key = 'visitorcounter';
             const counterElem = document.getElementById('visitorCount');
             counterElem.innerText = "Visitor Count: Loading...";
 
             if (!localStorage.getItem(localStorageKey)) {
                 // للمستخدم الجديد: زيادة العداد
-                fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-                    .then(response => response.json())
+                fetch("https://visitor-counter.apricotcontinued.workers.dev/")
+                    .then(response => response.text())
                     .then(data => {
                         console.log("Hit response:", data);
-                        if(data && data.value !== undefined) {
-                            counterElem.innerText = "Visitor Count: " + data.value;
-                            localStorage.setItem(localStorageKey, 'true');
-                        } else {
-                            counterElem.innerText = "Visitor Count: N/A";
-                        }
+                        counterElem.innerText = "Visitor Count: " + data;
+                        localStorage.setItem(localStorageKey, 'true');
                     })
                     .catch(error => {
                         console.error('Error updating visitor count:', error);
@@ -309,15 +303,11 @@
                     });
             } else {
                 // للمستخدم العائد: استرجاع العدد الحالي دون زيادة
-                fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
-                    .then(response => response.json())
+                fetch("https://visitor-counter.apricotcontinued.workers.dev/")
+                    .then(response => response.text())
                     .then(data => {
                         console.log("Get response:", data);
-                        if(data && data.value !== undefined) {
-                            counterElem.innerText = "Visitor Count: " + data.value;
-                        } else {
-                            counterElem.innerText = "Visitor Count: N/A";
-                        }
+                        counterElem.innerText = "Visitor Count: " + data;
                     })
                     .catch(error => {
                         console.error('Error fetching visitor count:', error);
