@@ -286,39 +286,8 @@
             });
         }
 
-        async function showDetails(contentPath) {
-            const detailsContainer = document.getElementById('detailsContainer');
-            detailsContainer.style.display = 'flex';
-            detailsContainer.innerHTML = `
-                <div class="writeup-details">
-                    <button onclick="closeDetails()">× Close</button>
-                    <div class="loading">Loading...</div>
-                </div>
-            `;
-
-            try {
-                const response = await fetch(contentPath);
-                if (!response.ok) throw new Error("File not found");
-                const content = await response.text();
-
-                detailsContainer.innerHTML = `
-                    <div class="writeup-details">
-                        <button onclick="closeDetails()">× Close</button>
-                        <div>${content}</div>
-                    </div>
-                `;
-                
-                setTimeout(() => {
-                    detailsContainer.querySelector('.writeup-details').classList.add('active');
-                }, 10);
-            } catch (error) {
-                detailsContainer.innerHTML = `
-                    <div class="writeup-details">
-                        <button onclick="closeDetails()">× Close</button>
-                        <div>Error loading content: ${error.message}</div>
-                    </div>
-                `;
-            }
+        function showDetails(contentPath) {
+            window.location.href = contentPath;  
         }
 
         function closeDetails() {
