@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footprinting</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2A2F4F;
+      --secondary: #917FB3;
+      --accent: #E5BEEC;
+      --dark: #1A1A2E;
+      --light: #FDE2F3;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(45deg, var(--dark), var(--primary));
+      color: white;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+  
+    .header {
+      text-align: center;
+      padding: 4rem 0;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      margin-bottom: 4rem;
+      border-radius: 20px;
+      animation: fadeInDown 2s ease;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .header h1 {
+      font-size: 3rem;
+    }
+    .section {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    .section-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 80%;
+      background: var(--secondary);
+      border-radius: 5px;
+    }
+  
+    .video-wrapper {
+      position: relative;
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 15px;
+    }
+   
+    .solution-video {
+      width: 90%;
+      max-width: 1000px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      display: block;
+      margin: 0 auto;
+    }
+    .photo-wrapper {
+      margin-bottom: 1.5rem;
+    }
+    .photo-wrapper h3 {
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+ 
+    <header class="header" data-aos="fade-down">
+      <h1>Footprinting</h1>
+    </header>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">1</div>
+      <h2 class="section-title">FTP</h2>
+      
+      <div class="photo-wrapper">
+        <h3>Question 1</h3>
+        <img src="FTP/1.png" alt="FTP Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 1</h3>
+        <img src="FTP/01.png" alt="FTP Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+        <h3>Question 2</h3>
+        <img src="FTP/2.png" alt="FTP Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 2</h3>
+        <img src="FTP/02.png" alt="FTP Solution" class="solution-video">
+      </div>
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">2</div>
+      <h2 class="section-title">SMB</h2>
+      <div class="photo-wrapper">
+
+
+        <h3>Question 1</h3>
+        <img src="SMB/1.png" alt="SMB Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 1</h3>
+        <img src="SMB/01.png" alt="SMB Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+        
+        <h3>Question 2</h3>
+        <img src="SMB/2.png" alt="SMB Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 2</h3>
+        <img src="SMB/02.png" alt="SMB Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+        <h3>Question 3</h3>
+        <img src="SMB/3.png" alt="SMB Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 3</h3>
+        <img src="SMB/03.png" alt="SMB Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+        <h3>Question 4</h3>
+        <img src="SMB/4.png" alt="SMB Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 4</h3>
+        <img src="SMB/04.png" alt="SMB Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+        <h3>Question 5</h3>
+        <img src="SMB/5.png" alt="SMB Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 5</h3>
+        <img src="SMB/05.png" alt="SMB Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+        <h3>Question 6</h3>
+        <img src="SMB/6.png" alt="SMB Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 6</h3>
+        <img src="SMB/06.png" alt="SMB Solution" class="solution-video">
+
+      </div>
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">3</div>
+      <h2 class="section-title">NFS</h2>
+      <div class="photo-wrapper">
+        <h3>Question 1 & 2</h3>
+        <img src="NFS/1.png" alt="NFS Question" class="solution-video">
+        <img src="NFS/2.png" alt="NFS Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution for 1 & 2</h3>
+        <img src="NFS/01&02.png" alt="NFS Solution" class="solution-video">
+      </div>
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">4</div>
+      <h2 class="section-title">DNS</h2>
+      <div class="photo-wrapper">
+        <h3>Question 1</h3>
+        <img src="DNS/1.png" alt="DNS Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 1</h3>
+        <img src="DNS/01.png" alt="DNS Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+
+        <h3>Question 2</h3>
+        <img src="DNS/2.png" alt="DNS Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 2</h3>
+        <img src="DNS/02.png" alt="DNS Solution" class="solution-video">
+        <img src="DNS/002.png" alt="DNS Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+        <h3>Question 3</h3>
+        <img src="DNS/3.png" alt="DNS Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 3</h3>
+        <img src="DNS/03.png" alt="DNS Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+        <h3>Question 4</h3>
+        <img src="DNS/4.png" alt="DNS Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 4</h3>
+        <img src="DNS/04.png" alt="DNS Solution" class="solution-video">
+      </div>
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">5</div>
+      <h2 class="section-title">SMTP</h2>
+      <div class="photo-wrapper">
+        <h3>Question 1</h3>
+        <img src="SMTP/1.png" alt="SMTP Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 1</h3>
+        <img src="SMTP/01.png" alt="SMTP Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+        <h3>Question 2</h3>
+        <img src="SMTP/2.png" alt="SMTP Question" class="solution-video">
+
+        <h3>Solution 2</h3>
+        <img src="SMTP/02.png" alt="SMTP Solution" class="solution-video">
+
+      </div>
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">6</div>
+      <h2 class="section-title">IMAP / POP3</h2>
+      <div class="photo-wrapper">
+        <h3>Question 1</h3>
+        <img src="IMAP-POP3/1.png" alt="IMAP/POP3 Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 1</h3>
+        <img src="IMAP-POP3/01.png" alt="IMAP/POP3 Solution" class="solution-video">
+      </div>
+
+      <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+      <h3>Question 2</h3>
+        <img src="IMAP-POP3/2.png" alt="IMAP/POP3 Question" class="solution-video">
+        <h3>Solution 2</h3>
+        <img src="IMAP-POP3/02.png" alt="IMAP/POP3 Solution" class="solution-video">
+
+      <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+      <h3>Question 3</h3>
+        <img src="IMAP-POP3/3.png" alt="IMAP/POP3 Question" class="solution-video">
+        <h3>Solution 3</h3>
+        <video controls class="solution-video" poster="thumbnail.jpg"><source src="IMAP-POP3/03.webm" type="video/webm">Your browser does not support the video tag.</video>
+
+      <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+      <h3>Question 4</h3>
+        <img src="IMAP-POP3/4.png" alt="IMAP/POP3 Question" class="solution-video">
+        <h3>Solution 4</h3>
+        <img src="IMAP-POP3/04.png" alt="IMAP/POP3 Solution" class="solution-video">
+
+      <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+      <h3>Question 5</h3>
+        <img src="IMAP-POP3/5.png" alt="IMAP/POP3 Question" class="solution-video">
+        <h3>Solution 5</h3>
+        <img src="IMAP-POP3/05.png" alt="IMAP/POP3 Solution" class="solution-video">
+        <img src="IMAP-POP3/005.png" alt="IMAP/POP3 Solution" class="solution-video">
+
+      <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+      <h3>Question 6</h3>
+        <img src="IMAP-POP3/6.png" alt="IMAP/POP3 Question" class="solution-video">
+        <h3>Solution 6</h3>
+        <img src="IMAP-POP3/06.png" alt="IMAP/POP3 Solution" class="solution-video">
+
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">7</div>
+      <h2 class="section-title">SNMP</h2>
+      <div class="photo-wrapper">
+        <h3>Question 1</h3>
+        <img src="SNMP/1.png" alt="SNMP Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 1</h3>
+        <img src="SNMP/01.png" alt="SNMP Solution" class="solution-video">
+      </div>
+
+      <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+      <h3>Question 2</h3>
+      <img src="SNMP/2.png" alt="SNMP Question" class="solution-video">
+      <h3>Solution 2</h3>
+      <img src="SNMP/02.png" alt="SNMP Solution" class="solution-video">
+
+      <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+    <h3>Question 3</h3>
+    <img src="SNMP/3.png" alt="SNMP Question" class="solution-video">
+    <h3>Solution 3</h3>
+    <img src="SNMP/03.png" alt="SNMP Solution" class="solution-video">
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">8</div>
+      <h2 class="section-title">MySQL</h2>
+      <div class="photo-wrapper">
+        <h3>Question 1</h3>
+        <img src="MySQL/1.png" alt="MySQL Question" class="solution-video">
+        <h3>Solution 1</h3>
+        <img src="MySQL/01.png" alt="MySQL Solution" class="solution-video">
+
+        <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+        <h3>Question 2</h3>
+        <img src="MySQL/2.png" alt="MySQL Question" class="solution-video">
+        <h3>Solution 2</h3>
+        <img src="MySQL/02.png" alt="MySQL Solution" class="solution-video">
+        <img src="MySQL/002.png" alt="MySQL Solution" class="solution-video">
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">9</div>
+      <h2 class="section-title">MSSQL</h2>
+      <div class="photo-wrapper">
+        <h3>Question 1</h3>
+        <img src="MSSQL/1.png" alt="MSSQL Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 1</h3>
+        <img src="MSSQL/01.png" alt="MSSQL Solution" class="solution-video">
+      </div>
+
+      <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+      <h3>Question 2</h3>
+      <img src="MSSQL/2.png" alt="MSSQL Question" class="solution-video">
+      <h3>Solution 2</h3>
+      <img src="MSSQL/02.png" alt="MSSQL Solution" class="solution-video">
+    </section>
+    
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">10</div>
+      <h2 class="section-title">IPMI</h2>
+      <div class="photo-wrapper">
+        <h3>Question 1</h3>
+        <img src="IPMI/1.png" alt="IPMI Question" class="solution-video">
+      </div>
+      <div class="photo-wrapper">
+        <h3>Solution 1</h3>
+        <img src="IPMI/01.png" alt="IPMI Solution" class="solution-video">
+      </div>
+
+      <hr style="border: 1px solid var(--secondary); margin: 2rem auto; width: 80%; opacity: 0.5;">
+
+      <h3>Question 2</h3>
+      <img src="IPMI/2.png" alt="IPMI Question" class="solution-video">
+      <h3>Solution 2</h3>
+      <img src="IPMI/02.png" alt="IPMI Solution" class="solution-video">
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">11</div>
+      <h2 class="section-title">Footprinting Lab - Easy</h2>
+      <div class="photo-wrapper">
+      </div>
+      <div class="video-wrapper">
+        <h3>Video Solution</h3>
+        <iframe class="solution-video" width="1500" height="650" src="https://www.youtube.com/embed/1-fB3DJ2KRw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">12</div>
+      <h2 class="section-title">Footprinting Lab - Medium</h2>
+      <div class="photo-wrapper">
+        <h3>Question</h3>
+      </div>
+      <div class="video-wrapper">
+        <h3>Video Solution</h3>
+        <iframe class="solution-video" width="950" height="650" src="https://www.youtube.com/embed/1afhDEuPZPI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+    
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">13</div>
+      <h2 class="section-title">Footprinting Lab - Hard</h2>
+      <div class="photo-wrapper">
+      </div>
+      <div class="video-wrapper">
+        <h3>Video Solution</h3>
+        <iframe class="solution-video" width="950" height="650" src="https://www.youtube.com/embed/irenFaO3I0U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+    
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false
+    });
+  </script>
+</body>
+</html>
