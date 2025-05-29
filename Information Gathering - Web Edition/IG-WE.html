@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information Gathering - Web Edition</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2A2F4F;
+      --secondary: #917FB3;
+      --accent: #E5BEEC;
+      --dark: #1A1A2E;
+      --light: #FDE2F3;
+      --glow: 0 0 15px rgba(233, 176, 255, 0.6);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(45deg, var(--dark), var(--primary));
+      color: white;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+  
+    .header {
+      text-align: center;
+      padding: 4rem 0;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      margin-bottom: 4rem;
+      border-radius: 20px;
+      animation: fadeInDown 2s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--glow);
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .header h1 {
+      font-size: 3rem;
+      text-shadow: 0 2px 10px rgba(233, 176, 255, 0.8);
+    }
+    .section {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), var(--glow);
+    }
+    .section-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 5px rgba(233, 176, 255, 0.5);
+    }
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1.5rem;
+      color: var(--accent);
+    }
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 80%;
+      background: var(--secondary);
+      border-radius: 5px;
+      box-shadow: var(--glow);
+    }
+  
+    .media-container {
+      position: relative;
+      text-align: center;
+      margin: 2rem auto;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .media-container:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5), var(--glow);
+    }
+   
+    .media-content {
+      width: 90%;
+      max-width: 1000px;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: all 0.3s ease;
+    }
+    .media-content:hover {
+      transform: scale(1.01);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6), var(--glow);
+    }
+
+    .question-wrapper {
+      margin-bottom: 2rem;
+    }
+    .question-title {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .question-title i {
+      color: var(--secondary);
+      text-shadow: var(--glow);
+    }
+    .divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+      margin: 2.5rem auto;
+      width: 80%;
+      opacity: 0.5;
+    }
+    .youtube-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      margin: 1rem auto;
+    }
+    .youtube-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+ 
+    <header class="header" data-aos="fade-down">
+      <h1>Information Gathering - Web Edition</h1>
+    </header>
+    
+    <!-- Section 1: WHOIS -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">1</div>
+      <h2 class="section-title">WHOIS</h2>
+      
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-question-circle"></i> Question</h3>
+        <div class="media-container">
+          <img src="1.png" alt="WHOIS Question Image" class="media-content">
+        </div>
+      </div>
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-check-circle"></i> Solution</h3>
+        <div class="media-container">
+          <img src="01.png" alt="WHOIS Solution Image" class="media-content">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 2: DNS & Subdomains -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">2</div>
+      <h2 class="section-title">DNS & Subdomains</h2>
+      
+      <!-- Question 1 -->
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-question-circle"></i> Question 1</h3>
+        <div class="media-container">
+          <img src="3.png" alt="DNS Question 1 Image" class="media-content">
+        </div>
+      </div>
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-check-circle"></i> Solution 1</h3>
+        <div class="media-container">
+          <video class="media-content" controls poster="https://via.placeholder.com/800x450?text=Video+Thumbnail">
+            <source src="03.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <!-- Question 2 -->
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-question-circle"></i> Question 2</h3>
+        <div class="media-container">
+          <img src="4.png" alt="DNS Question 2 Image" class="media-content">
+        </div>
+      </div>
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-check-circle"></i> Solution 2</h3>
+        <div class="media-container">
+          <video class="media-content" controls poster="https://via.placeholder.com/800x450?text=Video+Thumbnail">
+            <source src="04.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <!-- Question 3 -->
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-question-circle"></i> Question 3</h3>
+        <div class="media-container">
+          <img src="5.png" alt="DNS Question 3 Image" class="media-content">
+        </div>
+      </div>
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-check-circle"></i> Solution 3</h3>
+        <div class="media-container">
+          <video class="media-content" controls poster="https://via.placeholder.com/800x450?text=Video+Thumbnail">
+            <source src="05.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <!-- Question 4 -->
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-question-circle"></i> Question 4</h3>
+        <div class="media-container">
+          <img src="6.png" alt="DNS Question 4 Image" class="media-content">
+        </div>
+      </div>
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-check-circle"></i> Solution 4</h3>
+        <div class="media-container">
+          <video class="media-content" controls poster="https://via.placeholder.com/800x450?text=Video+Thumbnail">
+            <source src="06.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Fingerprinting -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">3</div>
+      <h2 class="section-title">Fingerprinting</h2>
+      
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-question-circle"></i> Question</h3>
+        <div class="media-container">
+          <img src="7.png" alt="Fingerprinting Question Image" class="media-content">
+        </div>
+      </div>
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-check-circle"></i> Solution</h3>
+        <div class="media-container">
+          <video class="media-content" controls poster="https://via.placeholder.com/800x450?text=Video+Thumbnail">
+            <source src="07.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 4: Crawling -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">4</div>
+      <h2 class="section-title">Crawling</h2>
+      
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-question-circle"></i> Question</h3>
+        <div class="media-container">
+          <img src="8.png" alt="Crawling Question Image" class="media-content">
+        </div>
+      </div>
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-check-circle"></i> Solution</h3>
+        <div class="media-container">
+          <video class="media-content" controls poster="https://via.placeholder.com/800x450?text=Video+Thumbnail">
+            <source src="08.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 5: Skills Assessment -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">5</div>
+      <h2 class="section-title">Skills Assessment</h2>
+      
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-question-circle"></i> Question</h3>
+        <div class="media-container">
+          <img src="9.png" alt="Skills Assessment Question Image" class="media-content">
+        </div>
+      </div>
+      <div class="question-wrapper">
+        <h3 class="question-title"><i class="fas fa-check-circle"></i> Solution</h3>
+        <div class="media-container" style="padding: 0; background: transparent; box-shadow: none;">
+          <div class="youtube-container">
+            <iframe class="youtube-iframe" 
+              src="https://www.youtube.com/embed/IOxr16pRrcc" 
+              title="YouTube video player" frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false
+    });
+  </script>
+</body>
+</html>
