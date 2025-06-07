@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shells & Payloads</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2A2F4F;
+      --secondary: #917FB3;
+      --accent: #E5BEEC;
+      --dark: #1A1A2E;
+      --light: #FDE2F3;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(45deg, var(--dark), var(--primary));
+      color: white;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+  
+    .header {
+      text-align: center;
+      padding: 4rem 0;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      margin-bottom: 4rem;
+      border-radius: 20px;
+      animation: fadeInDown 2s ease;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .header h1 {
+      font-size: 3rem;
+    }
+    .section {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    .section-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 80%;
+      background: var(--secondary);
+      border-radius: 5px;
+    }
+  
+    .video-wrapper {
+      position: relative;
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 15px;
+    }
+   
+    .solution-video {
+      width: 90%;
+      max-width: 1000px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      display: block;
+      margin: 0 auto;
+    }
+    .question-wrapper {
+      margin-bottom: 2rem;
+    }
+    .question-wrapper h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .divider {
+      border: 1px solid var(--secondary);
+      margin: 2rem auto;
+      width: 80%;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+ 
+    <header class="header" data-aos="fade-down">
+      <h1>Shells & Payloads</h1>
+    </header>
+    
+    <!-- Section 1: Anatomy of a Shell -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">1</div>
+      <h2 class="section-title">Anatomy of a Shell</h2>
+      
+      <div class="question-wrapper">
+        <h3>Question</h3>
+        <img src="Shells & Payloads/1.png" alt="Anatomy of a Shell Question Image" class="solution-video">
+      </div>
+      <div class="question-wrapper">
+        <h3>Solution</h3>
+        <img src="Shells & Payloads/1.png" alt="Anatomy of a Shell Solution Image" class="solution-video">
+      </div>
+    </section>
+    
+    <!-- Section 2: Bind Shells -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">2</div>
+      <h2 class="section-title">Bind Shells</h2>
+      
+      <div class="question-wrapper">
+        <h3>Question</h3>
+        <img src="Shells & Payloads/2.png" alt="Bind Shells Question Image" class="solution-video">
+      </div>
+      <div class="question-wrapper">
+        <h3>Solution</h3>
+        <video class="solution-video" controls>
+          <source src="Shells & Payloads/02.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+    
+    <!-- Section 3: Reverse Shells -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">3</div>
+      <h2 class="section-title">Reverse Shells</h2>
+      
+      <div class="question-wrapper">
+        <h3>Question</h3>
+        <img src="Shells & Payloads/3.png" alt="Reverse Shells Question Image" class="solution-video">
+      </div>
+      <div class="question-wrapper">
+        <h3>Solution</h3>
+        <video class="solution-video" controls>
+          <source src="Shells & Payloads/03.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+    
+    <!-- Section 4: Automating Payloads & Delivery with Metasploit -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">4</div>
+      <h2 class="section-title">Automating Payloads & Delivery with Metasploit</h2>
+      
+      <div class="question-wrapper">
+        <h3>Question</h3>
+        <img src="Shells & Payloads/4.png" alt="Metasploit Question Image" class="solution-video">
+      </div>
+      <div class="question-wrapper">
+        <h3>Solution</h3>
+        <video class="solution-video" controls>
+          <source src="Shells & Payloads/04.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+    
+    <!-- Section 5: Infiltrating Windows -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">5</div>
+      <h2 class="section-title">Infiltrating Windows</h2>
+      
+      <div class="question-wrapper">
+        <h3>Question</h3>
+        <img src="Shells & Payloads/5.png" alt="Infiltrating Windows Question Image" class="solution-video">
+      </div>
+      <div class="question-wrapper">
+        <h3>Solution</h3>
+        <video class="solution-video" controls>
+          <source src="Shells & Payloads/05.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+    
+    <!-- Section 6: Infiltrating Unix/Linux -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">6</div>
+      <h2 class="section-title">Infiltrating Unix/Linux</h2>
+      
+      <div class="question-wrapper">
+        <h3>Question</h3>
+        <img src="Shells & Payloads/6.png" alt="Infiltrating Unix/Linux Question Image" class="solution-video">
+      </div>
+      <div class="question-wrapper">
+        <h3>Solution</h3>
+        <video class="solution-video" controls>
+          <source src="Shells & Payloads/06.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+    
+    <!-- Section 7: Laudanum, One Webshell to Rule Them All -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">7</div>
+      <h2 class="section-title">Laudanum, One Webshell to Rule Them All</h2>
+      
+      <div class="question-wrapper">
+        <h3>Question</h3>
+        <img src="Shells & Payloads/7.png" alt="Laudanum Question Image" class="solution-video">
+      </div>
+      <div class="question-wrapper">
+        <h3>Solution</h3>
+        <video class="solution-video" controls>
+          <source src="Shells & Payloads/07.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+    
+    <!-- Section 8: Antak Webshell -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">8</div>
+      <h2 class="section-title">Antak Webshell</h2>
+      
+      <div class="question-wrapper">
+        <h3>Question</h3>
+        <img src="Shells & Payloads/8.png" alt="Antak Webshell Question Image" class="solution-video">
+      </div>
+      <div class="question-wrapper">
+        <h3>Solution</h3>
+        <video class="solution-video" controls>
+          <source src="Shells & Payloads/08.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+    
+    <!-- Section 9: PHP Web Shells -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">9</div>
+      <h2 class="section-title">PHP Web Shells</h2>
+      
+      <div class="question-wrapper">
+        <h3>Question</h3>
+        <img src="Shells & Payloads/9.png" alt="PHP Web Shells Question Image" class="solution-video">
+      </div>
+      <div class="question-wrapper">
+        <h3>Solution</h3>
+        <div class="video-wrapper">
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 10: The Live Engagement -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">10</div>
+      <h2 class="section-title">The Live Engagement</h2>
+      
+      <!-- Host 1 -->
+      <div class="question-wrapper">
+        <h3>Host-1</h3>
+        <div class="video-wrapper">
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/host1-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      
+      <!-- Host 2 -->
+      <div class="question-wrapper">
+        <h3>Host-2</h3>
+        <div class="video-wrapper">
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/host2-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      
+      <!-- Host 3 -->
+      <div class="question-wrapper">
+        <h3>Host-3</h3>
+        <div class="video-wrapper">
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/host3-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false
+    });
+  </script>
+</body>
+</html>
