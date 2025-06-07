@@ -114,6 +114,22 @@
       width: 80%;
       opacity: 0.5;
     }
+    .youtube-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      margin: 20px auto;
+      max-width: 1000px;
+    }
+    .youtube-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+    }
   </style>
 </head>
 <body>
@@ -134,7 +150,7 @@
       </div>
       <div class="question-wrapper">
         <h3>Solution</h3>
-        <img src="1.png" alt="Anatomy of a Shell Solution Image" class="solution-video">
+        <img src="1-solution.png" alt="Anatomy of a Shell Solution Image" class="solution-video">
       </div>
     </section>
     
@@ -151,6 +167,7 @@
         <h3>Solution</h3>
         <video class="solution-video" controls>
           <source src="02.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
       </div>
     </section>
@@ -168,6 +185,7 @@
         <h3>Solution</h3>
         <video class="solution-video" controls>
           <source src="03.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
       </div>
     </section>
@@ -185,6 +203,7 @@
         <h3>Solution</h3>
         <video class="solution-video" controls>
           <source src="04.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
       </div>
     </section>
@@ -202,6 +221,7 @@
         <h3>Solution</h3>
         <video class="solution-video" controls>
           <source src="05.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
       </div>
     </section>
@@ -219,6 +239,7 @@
         <h3>Solution</h3>
         <video class="solution-video" controls>
           <source src="06.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
       </div>
     </section>
@@ -236,6 +257,7 @@
         <h3>Solution</h3>
         <video class="solution-video" controls>
           <source src="07.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
       </div>
     </section>
@@ -253,56 +275,58 @@
         <h3>Solution</h3>
         <video class="solution-video" controls>
           <source src="08.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
       </div>
     </section>
     
-<!-- Section 9: PHP Web Shells -->
-<section class="section" data-aos="fade-up">
-  <div class="section-number">9</div>
-  <h2 class="section-title">PHP Web Shells</h2>
-  
-  <div class="question-wrapper">
-    <h3>Question</h3>
-    <img src="9.png" alt="PHP Web Shells Question Image" class="solution-video">
-  </div>
-  <div class="question-wrapper">
-    <h3>Solution</h3>
-    <div class="video-wrapper">
-      <iframe width="100%" height="500" src="https://www.youtube.com/embed/m7AbPDQCOMM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- Section 10: The Live Engagement -->
-<section class="section" data-aos="fade-up">
-  <div class="section-number">10</div>
-  <h2 class="section-title">The Live Engagement</h2>
-  
-  <!-- Host 1 -->
-  <div class="question-wrapper">
-    <h3>Host-1</h3>
-    <div class="video-wrapper">
-      <iframe width="100%" height="500" src="https://www.youtube.com/embed/i8Bvs10eIIU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-  
-  <!-- Host 2 -->
-  <div class="question-wrapper">
-    <h3>Host-2</h3>
-    <div class="video-wrapper">
-      <iframe width="100%" height="500" src="https://www.youtube.com/embed/3HWu9LfI6eQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-  
-  <!-- Host 3 -->
-  <div class="question-wrapper">
-    <h3>Host-3</h3>
-    <div class="video-wrapper">
-      <iframe width="100%" height="500" src="https://www.youtube.com/embed/73QS3B-DUJk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>    
+    <!-- Section 9: PHP Web Shells -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">9</div>
+      <h2 class="section-title">PHP Web Shells</h2>
+      
+      <div class="question-wrapper">
+        <h3>Question</h3>
+        <img src="9.png" alt="PHP Web Shells Question Image" class="solution-video">
+      </div>
+      <div class="question-wrapper">
+        <h3>Solution</h3>
+        <div class="youtube-container">
+          <iframe src="https://www.youtube.com/embed/m7AbPDQCOMM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 10: The Live Engagement -->
+    <section class="section" data-aos="fade-up">
+      <div class="section-number">10</div>
+      <h2 class="section-title">The Live Engagement</h2>
+      
+      <!-- Host 1 -->
+      <div class="question-wrapper">
+        <h3>Host-1</h3>
+        <div class="youtube-container">
+          <iframe src="https://www.youtube.com/embed/i8Bvs10eIIU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      
+      <!-- Host 2 -->
+      <div class="question-wrapper">
+        <h3>Host-2</h3>
+        <div class="youtube-container">
+          <iframe src="https://www.youtube.com/embed/3HWu9LfI6eQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      
+      <!-- Host 3 -->
+      <div class="question-wrapper">
+        <h3>Host-3</h3>
+        <div class="youtube-container">
+          <iframe src="https://www.youtube.com/embed/73QS3B-DUJk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+    
   </div>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
